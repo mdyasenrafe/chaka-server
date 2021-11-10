@@ -20,6 +20,7 @@ async function run() {
     const database = client.db("chaka");
     const productsCollection = database.collection("products");
     const ordersCollection = database.collection("orders");
+    const usersCollection = database.collection("users");
     // product get api
     app.get("/products", async (req, res) => {
       const cursors = productsCollection.find();
@@ -38,7 +39,30 @@ async function run() {
       const result = await ordersCollection.insertOne(body);
       res.json(result);
     });
-
+    // user collection post method
+    app.post("/users", async (req, res) => {
+      const body = req.body;
+      const result = await usersCollection.insertOne(body);
+      res.json(result);
+    });
+    app.get("/users", async (req, res) => {
+      const cursors = usersCollection.find();
+      const result = await cursors.toArray();
+      res.send(result);
+    });
+    // find users Admin
+    app.get("/users/:email", async (req, res) => {
+      const email = req.params.email;
+      const query = { email: email };
+      const user = await usersCollection.find(query);
+      let isAdmin = false;
+      if (user?.role === "admin") {
+        isAdmin = true;
+      } else {
+        isAdmin = false;
+      }
+      res.send(isAdmin);
+    });
     console.log("database connect");
   } finally {
     //   await client.close();
