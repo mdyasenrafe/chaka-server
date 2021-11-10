@@ -19,12 +19,26 @@ async function run() {
     await client.connect();
     const database = client.db("chaka");
     const productsCollection = database.collection("products");
+    const ordersCollection = database.collection("orders");
     // product get api
     app.get("/products", async (req, res) => {
       const cursors = productsCollection.find();
       const result = await cursors.toArray();
       res.send(result);
     });
+    // orders collection get method
+    app.get("/orders", async (req, res) => {
+      const cursors = ordersCollection.find();
+      const result = await cursors.toArray();
+      res.send(result);
+    });
+    // orders collection post method
+    app.post("/orders", async (req, res) => {
+      const body = req.body;
+      const result = await ordersCollection.insertOne(body);
+      res.json(result);
+    });
+
     console.log("database connect");
   } finally {
     //   await client.close();
