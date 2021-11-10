@@ -19,6 +19,12 @@ async function run() {
     await client.connect();
     const database = client.db("chaka");
     const productsCollection = database.collection("products");
+    // product get api
+    app.get("/products", async (req, res) => {
+      const cursors = productsCollection.find();
+      const result = await cursors.toArray();
+      res.send(result);
+    });
     console.log("database connect");
   } finally {
     //   await client.close();
