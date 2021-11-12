@@ -98,9 +98,7 @@ async function run() {
       const email = req.params.email;
       const query = { email: email };
       const user = await usersCollection.findOne(query);
-      console.log(query);
       let isAdmin = false;
-      console.log(user);
       if (user?.role === "admin") {
         isAdmin = true;
       } else {
@@ -118,9 +116,7 @@ async function run() {
           role: user.role,
         },
       };
-      console.log("usersCollection", usersCollection);
       const result = await usersCollection.updateOne(query, updateDoc, options);
-      console.log(result);
       res.json(result);
     });
     // reviews get method
@@ -135,7 +131,6 @@ async function run() {
       const result = await reviewCollection.insertOne(body);
       res.json(result);
     });
-    console.log("database connect");
   } finally {
     //   await client.close();
   }
