@@ -27,5 +27,5 @@ Chaka is a Online bike sales website. It is a Mern Statck Project. User Can Log 
 - Express
 - MongoDb
 
-[Font End Repo Link](https://github.com/programming-hero-web-course-4/niche-website-client-side-mdyasenrafe)
-[Back End Repo Link](https://github.com/programming-hero-web-course-4/niche-website-server-side-mdyasenrafe)
+[Font End Repo Link](https://github.com/mdyasenrafe/chaka)
+[Back End Repo Link](https://github.com/mdyasenrafe/chaka-server)
