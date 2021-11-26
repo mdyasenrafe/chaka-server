@@ -2,7 +2,8 @@
 
 ## About
 
-Chaka is a Online bike sales website. It is a Mern Statck Project. User Can Log in this website. It have an Admin Panel page. It have Its own database. if admin login then admin can post your product by uploading in database in the admin panel add product section. user can show his orders.user can review website.[live websilte](https://chaka-401dd.web.app/)
+Chaka is an online bike sales website. It is a MERN Stack Project. Users can Log in to this website. It has an Admin Panel page. user can show his orders. Users can review the website. Users can delete orders.If admin login Admin can make a user admin, can add products, can manage all products as well as
+manage all orders[live websilte](https://chaka-401dd.web.app/)
 
 ## Features
 
